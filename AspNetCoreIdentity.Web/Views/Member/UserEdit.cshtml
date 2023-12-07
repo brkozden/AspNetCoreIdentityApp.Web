@@ -1,0 +1,136 @@
+﻿@model UserEditViewModel
+@{
+    ViewData["Title"] = "UserEdit";
+}
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/UserEdit.css">
+</head>
+
+
+<section style="background-color: #eee;">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                        <li class="/Member/Index/"><a href="/Member/Index/">Ayarlar</a></li>
+                        <li class="breadcrumb-item active" href="/Member/UserEdit/" aria-current="page">Kullanıcı Bilgileri </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="account-settings">
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="">
+                                </div>
+                                <h5 class="user-name">Username</h5>
+                                <h6 class="user-email">Email</h6>
+                            </div>
+                            <div class="about">
+                                <h5>Hakkında</h5>
+                                <p>About</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-9">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <form asp-controller="Member" asp-action="UserEdit" method="post" enctype="multipart/form-data">
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h6 class="mb-2 text-primary">Kullanıcı Bilgileri</h6>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="Username" asp-for="Username"></label>
+                                        <input type="text" id="Username" class="form-control" asp-for="Username" />
+                                        <span class="text-danger" asp-validation-for="Username"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="Email" asp-for="Email"></label>
+                                        <input type="text" id="Email" class="form-control" asp-for="Email" />
+                                        <span class="text-danger" asp-validation-for="Email"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="Phone" asp-for="Phone"></label>
+                                        <input type="text" id="Phone" class="form-control" asp-for="Phone" />
+                                        <span class="text-danger" asp-validation-for="Phone"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="BirthDay" asp-for="BirthDate"></label>
+                                        <input type="date" id="BirthDay" class="form-control" asp-for="BirthDate" />
+                                        <span class="text-danger" asp-validation-for="BirthDate"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gutters">
+
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="City" asp-for="City"></label>
+                                        <input type="datetime" id="City" class="form-control" asp-for="City" />
+                                        <span class="text-danger" asp-validation-for="City"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 ">
+                                    <div class="form-group">
+                                        <label class="form-label" for="Picture" asp-for="Picture"></label>
+                                        <input type="file" id="Picture" class="form-control" asp-for="Picture" />
+                                        <span class="text-danger" asp-validation-for="Picture"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="Gender" asp-for="Gender"></label>
+                                        <select  id="Gender" class="form-control" asp-for="Gender" >
+                                        <option selected>Seçiniz</option>
+                                        <option value="Erkek">Erkek</option>
+                                        <option value="Kadin">Kadın</option>
+                                        <option value="Belirtilmemiş">Belirtmek istemiyorum</option> </select>
+                                        <span class="text-danger" asp-validation-for="Gender"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 ">
+                                    <div class="form-group">
+                                        <label class="form-label" for="About" asp-for="About"></label>
+                                        <input rows="3" type="text" id="About" class="form-control" asp-for="About" />
+                                        <span class="text-danger" asp-validation-for="About"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
+                                    <div class="text-right">
+                                        <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
+                                        <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

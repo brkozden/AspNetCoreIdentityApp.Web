@@ -1,0 +1,29 @@
+﻿@model List<AdminModels.UserViewModel>
+@{
+    ViewData["Title"] = "UserList";
+}
+<h2>Kullanıcı Listeleri</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Kullanıcı Adı</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefon</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+        <th scope="row">@item.ID</th>
+        <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Phone</td>
+        </tr>
+
+        }
+           
+    </tbody>
+</table>
+
